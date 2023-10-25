@@ -1,0 +1,40 @@
+---
+title: "Week_10_exercises_GIS"
+author: "J.Blondeau"
+date: "2023-10-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+***
+GIS data
+<br>
+
+- [ ]  STEER_HabMap
+- [ ]  MooringLocations
+- [ ]  STEER_bounday
+- [ ]  STEER_bathy
+
+***
+
+This week you will create a map for publication in a DPNR pamphlet showing the locations of the 
+proposed moorings (week 4 exercise).  I will give you all the layers needed for the map on One Drive so you can focus on just creating a map.  
+
+Your map will need to include the following features..
+
+1. Main map
+2. Map inset
+3. Graticules (Lat-Lon marks or grid lines).  Use decimal degrees
+4. Scale bar
+5. North Arrow
+6. Title
+7. Legend
+8. Annotations
+
+9. Finally, export the map as a JPEG
+
+
