@@ -1,7 +1,7 @@
 ---
 title: "Week_10_exercises_GIS"
 author: "J.Blondeau"
-date: "2023-10-21"
+date: "2024-10-24"
 output: html_document
 ---
 
@@ -9,32 +9,34 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Working with Model Builder
 
-***
-GIS data
-<br>
+This week you will create a fairly simple data processing model in Model Builder.
 
-- [ ]  STEER_HabMap
-- [ ]  MooringLocations
-- [ ]  STEER_bounday
-- [ ]  STEER_bathy
+The idea of this model is to take in a large datatset (table) of St Croix fish density at every site over three years and be able to produce a point shapefile for a **single species**. This point shapefile will need to have some additional information from other shapefiles. It will then be easy to plot and visualize the distribution and density of a single species.
 
-***
+------------------------------------------------------------------------
 
-This week you will create a map for publication in a DPNR pamphlet showing the locations of the 
-proposed moorings (week 4 exercise).  I will give you all the layers needed for the map on One Drive so you can focus on just creating a map.  
+GIS data <br>
 
-Your map will need to include the following features..
+-   [ ] STX_Fish_PSU (table)
+-   [ ] STX_Habitat_Map (shapefile)
+-   [ ] STX_SampleFrame (shapefile)
 
-1. Main map
-2. Map inset
-3. Graticules (Lat-Lon marks or grid lines).  Use decimal degrees
-4. Scale bar
-5. North Arrow
-6. Title
-7. Legend
-8. Annotations
+------------------------------------------------------------------------
 
-9. Finally, export the map as a JPEG
+Your model should work as follows...
 
+Starting with the large tabular dataset (STX_Fish_PSU), your model should output a single point shapefile showing sample site density of a single fish species. Your output should include depth and habitat type (these will come from other feature classes) and then a new field (depth_ft) that you will need to calculate.
 
+Again, this will be a multi-step process. Inspect all the data first and come up with a workflow using all the tools you have learned to develop a model. Once completed, you will be able to reuse this model with any species you desire.
+
+```{css echo=FALSE}
+.bordered{
+  border-style: solid;
+}
+```
+
+::: bordered
+![](ConeyMap.jpg)
+:::

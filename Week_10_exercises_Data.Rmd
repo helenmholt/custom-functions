@@ -1,41 +1,77 @@
 ---
-title: "Week_10_exercises_Data"
+title: "Week_10_data"
 author: "J.Blondeau"
-date: "2023-10-21"
+date: "2024-10-24"
 output: html_document
-bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This week will you will get some practice creating an R markdown document and then serving it on GitHub pages as a static website.
+This week you will use a R-package that analyzes NCRMP Fish data. This package estimates common metrics we use for population-level analysis.
 
-The exercise today will be fairly simple. I would like for you to create an R markdown document to be your personal cheatsheet on the markdown syntax. Something you can refer back to that is on your personal GitHub page.
+## Install Fish R-package
 
-Your cheatsheet should have text and examples to help you learn and come back to when needed.
+[rvc](https://github.com/jeremiaheb/rvc)
 
-At a minimum, your document should have examples on..
+```{r, eval=FALSE}
+install.packages('devtools')
 
-1.  YAML settings
-2.  Reading in data
-3.  Loading libraries
-4.  Text formatting
-    -   italics, bold,
-5.  Ordered and numbered lists
-6.  Section headers
-7.  Tabsets
-8.  Code chunks
-    -   with code chunk options (i.e echo = , eval = )
-9.  Inserting figures
-    -   and figure captions
-10. Table outputs
-11. Inserting Images
-12. hyperlinks
-13. Formulas with LaTeX
-14. Citations ( I like using DOI)
+devtools::install_github('jeremiaheb/rvc')
+```
 
-------------------------------------------------------------------------
+## Examine the Fish R-package
 
-Here are a few helpful resources: <br> [pimp my r markdown](https://holtzy.github.io/Pimp-my-rmd/) <br> [R markdown: definitive guide](https://bookdown.org/yihui/rmarkdown/) <br> [More markdown syntax, including LaTeX](https://ashki23.github.io/markdown-latex.html)
+The Fish R-package (rvc) has a lot of functions available for estimating common metrics including density, occurrence, biomass, length frequency...and much more.
+
+You will first need to get the data using the function
+
+``` {.r eval="FALSE"}
+getRvcData(years = , regions = )
+```
+
+years = list or sequence of years
+
+regions = vector of regions you
+
+-   You will use "STTSTJ" and "STX"
+
+For example: The following code will get all the data from 2017, 2019, 2021 and 2023 in both the St. Thomas/John and St. Croix regions and set it to the value 'USVI'
+
+```{r eval=FALSE}
+USVI <- getRvcData(years = 2017:2023, regions =  c("STTSTJ", "STX"))
+```
+
+Now explore a few of the basic functions to see what the function outputs.
+
+```{r eval=FALSE}
+getDomainBiomass(x = USVI, species = "EPI GUTT")
+getDomainDensity(x = USVI, species = "BAL VETU")
+getDomainOccurrence(x = USVI, species = "SPA VIRI")
+```
+
+## Exercise
+
+I would like for you to create a function(s) that creates the following set of plots.
+
+hints:
+
+1)  Use grid() and gridExtra() or patchwork() packages arrange the 3 plots on one page
+2)  All plots will need error bars (standard error).
+
+-   $SE = \sqrt{var}$
+
+3)  Use the 'rvc' package functions and some 'tidyverse' functions for all your needs.
+
+**Your final function should only take in a dataset and a species name to produce the plot.**
+
+```{css echo=FALSE}
+.bordered{
+  border-style: solid;
+}
+```
+
+::: bordered
+![](solution_plot_example.jpeg)
+:::
