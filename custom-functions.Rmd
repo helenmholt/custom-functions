@@ -1,7 +1,7 @@
 ---
-title: "Week_10_data"
+title: "Custom Functions"
 author: "J.Blondeau"
-date: "2024-10-24"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
